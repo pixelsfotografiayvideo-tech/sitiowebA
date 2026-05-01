@@ -426,10 +426,12 @@
       flex-direction: column;
       gap: 12px;
       color: var(--cream);
-      background: rgba(26,21,15,0.4);
+      background: rgba(26,21,15,0.35);
       transition: background 0.3s;
     }
-    .play-btn:hover { background: rgba(26,21,15,0.6); }
+    .portfolio-video-wrap:hover .play-btn { background: rgba(26,21,15,0.55); }
+    .portfolio-video-wrap:hover .play-circle { border-color: var(--cream); transform: scale(1.08); }
+    .play-circle { transition: transform 0.3s, border-color 0.3s; }
     .play-circle {
       width: 64px; height: 64px;
       border: 1px solid rgba(227,219,206,0.6);
@@ -925,14 +927,14 @@
     </div>
     <div class="portfolio-grid reveal">
       <!-- Video -->
-      <div class="portfolio-video-wrap" id="video-trigger">
-        <div class="play-btn" onclick="openLightbox()">
+      <div class="portfolio-video-wrap" id="video-trigger" onclick="window.open('https://www.dropbox.com/scl/fi/h4dnooabf5x3muvmhhrv0/Book-Pre-Boda-Axel-y-Coty.mp4?rlkey=pbb4qxwl23j31blu7u0btq3em&st=vjn059m0&raw=1','_blank')" style="cursor:pointer;">
+        <img src="https://res.cloudinary.com/dgo3agrzb/image/upload/v1769654994/Pixels_Fotograf%C3%ADa_y_Video-7_zuyliu.jpg" alt="Pre-Boda Axel y Coty - Ver video" style="width:100%;height:100%;object-fit:cover;object-position:center;" loading="lazy" />
+        <div class="play-btn" style="pointer-events:none;">
           <div class="play-circle">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--cream)"><polygon points="5,3 19,12 5,21"/></svg>
           </div>
-          <span>Pre-Boda Axel &amp; Coty</span>
+          <span>Pre-Boda Axel &amp; Coty · Ver video</span>
         </div>
-        <img src="https://res.cloudinary.com/dgo3agrzb/image/upload/v1777600496/Pixels_Fotograf%C3%ADa_y_Video-180_vfamqy.jpg" alt="Pre-boda" style="width:100%;height:100%;object-fit:cover;opacity:0.5;" loading="lazy" />
       </div>
       <!-- Photos -->
       <div class="portfolio-item">
@@ -1164,13 +1166,7 @@
   <p class="footer-copy">© 2025 Pixels Fotografía y Video · Córdoba, Argentina · Aviso de privacidad</p>
 </footer>
 
-<!-- ===== LIGHTBOX ===== -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" onclick="closeLightbox()">×</button>
-  <video id="lightbox-video" controls>
-    <source src="https://www.dropbox.com/scl/fi/h4dnooabf5x3muvmhhrv0/Book-Pre-Boda-Axel-y-Coty.mp4?rlkey=pbb4qxwl23j31blu7u0btq3em&st=vjn059m0&raw=1" type="video/mp4" />
-  </video>
-</div>
+
 
 <script>
   /* ---- NAV SCROLL ---- */
@@ -1194,18 +1190,7 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  /* ---- LIGHTBOX ---- */
-  function openLightbox() {
-    document.getElementById('lightbox').classList.add('open');
-    document.getElementById('lightbox-video').play();
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.getElementById('lightbox-video').pause();
-  }
-  document.getElementById('lightbox').addEventListener('click', function(e) {
-    if (e.target === this) closeLightbox();
-  });
+
 
   /* ---- MOBILE MENU (simple) ---- */
   function toggleMenu() {
@@ -1220,3 +1205,4 @@
 
 </body>
 </html>
+
